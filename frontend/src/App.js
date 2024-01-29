@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
+import NavBar from "./Components/Navbar/Navbar";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Shop from "./Pgaes/shop";
 import ShopCategory from "./Pgaes/shopCategory";
@@ -18,12 +18,12 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        <NavBar />
         <Routes>
           <Route path="/" element={<Shop />} />
           <Route path="/sharee" element={<ShopCategory banner={sharee_banner} category="Sharee" />} />
           <Route
-            path="/threepcs"
+            path="/Threepcs"
             element={<ShopCategory banner={threepcs_banner} category="threepcs" />}
           />
           <Route path="/contact" element={<Contact />} />

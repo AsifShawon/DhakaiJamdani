@@ -5,10 +5,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Add from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -21,7 +18,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import Modal from "@mui/material/Modal";
-import DoneAllRoundedIcon from "@mui/icons-material/DoneAllRounded";
 
 const ShowProductPage = () => {
   const { allProducts, loading } = useProductContext();
@@ -242,7 +238,7 @@ const ShowProductPage = () => {
                   >
                     <MenuItem value="Sharee">Sharee</MenuItem>
                     <MenuItem value="Panjabi">Panjabi</MenuItem>
-                    <MenuItem value="Three Pcs">ThreePcs</MenuItem>
+                    <MenuItem value="Threepcs">ThreePcs</MenuItem>
                   </Select>
                 </FormControl>
                 <span className="pl-5">

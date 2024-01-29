@@ -1,82 +1,54 @@
-import React, { useContext, useState } from "react";
-import "./Navbar.css";
+"use client";
+import { Button, Navbar } from "keep-react";
+// import Image from "next/image";
 import logo from "../Assets/logo-1.png";
-import cart_icon from "../Assets/cart_icon.png";
-import { Link } from "react-router-dom";
+import { ShoppingCart, User } from "phosphor-react";
+import { useContext, useState } from "react";
 import { ShopContext } from "../../Context/ShopContext";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const NavBar = () => {
   const { getTotalItems } = useContext(ShopContext);
-  // console.log(getTotalItems());
   const [menu, setMenu] = useState("shop");
   return (
-    <div className="navBar">
-      <div className="nav-logo">
-        <img src={logo} alt="" className="logo" />
-        <p className="logo-title">ঢাকাইয়া জামদানি</p>
-      </div>
-      <ul className="nav-menu">
-        <li
-          onClick={() => {
-            setMenu("shop");
-          }}
+    <Navbar fluid={true} className="fixed w-full z-50 top-0 bg-white">
+      <Navbar.Container className="flex items-center justify-between">
+        <Navbar.Container
+          tag="ul"
+          className="lg:flex hidden items-center justify-between gap-8"
         >
-          <Link style={{ textDecoration: "none", color: "#626262" }} to="/">
-            Shop
-          </Link>{" "}
-          {menu === "shop" ? <hr /> : <></>}
-        </li>
-        <li
-          onClick={() => {
-            setMenu("Sharee");
-          }}
-        >
-          <Link
-            style={{ textDecoration: "none", color: "#626262" }}
-            to="/Sharee"
-          >
-            Sharee
-          </Link>{" "}
-          {menu === "Sharee" ? <hr /> : <></>}
-        </li>
-        <li
-          onClick={() => {
-            setMenu("threepcs");
-          }}
-        >
-          <Link
-            style={{ textDecoration: "none", color: "#626262" }}
-            to="/threepcs"
-          >
-            Three Pieces
-          </Link>{" "}
-          {menu === "threepcs" ? <hr /> : <></>}
-        </li>
-        <li
-          onClick={() => {
-            setMenu("contact");
-          }}
-        >
-          <Link
-            style={{ textDecoration: "none", color: "#626262" }}
-            to="/contact"
-          >
-            Contact
-          </Link>{" "}
-          {menu === "contact" ? <hr /> : <></>}
-        </li>
-      </ul>
-      <div className="nav-login-cart">
-        <Link style={{ textDecoration: "none", color: "#626262" }} to="/login">
-          <button>Login</button>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "#626262" }} to="/cart">
-          <img src={cart_icon} alt="" />
-        </Link>
-        <div className="nav-cart-cout">{getTotalItems()}</div>
-      </div>
-    </div>
+          <Link to="/"><Navbar.Link linkName="Shop" /></Link>
+          <Link to="/Sharee"><Navbar.Link linkName="Sharee" /></Link>
+          <Link to="/Threepcs"><Navbar.Link linkName="Three Pcs" /></Link>
+        </Navbar.Container>
+        <Navbar.Brand>
+          <img src={logo} alt="keep" width="50" />
+        </Navbar.Brand>
+
+        <Navbar.Collapse collapseType="sidebar">
+          <Navbar.Container tag="ul" className="flex flex-col gap-5">
+            <Navbar.Link linkName="Shop" />
+            <Link to="/Sharee"><Navbar.Link linkName="Sharee" /></Link>
+          <Link to="/Threepcs"><Navbar.Link linkName="Three Pcs" /></Link>
+          </Navbar.Container>
+        </Navbar.Collapse>
+
+        <Navbar.Container className="flex items-center gap-3">
+          <Link to="/login" className="text-metal-600">
+            {" "}
+            {<User size={20} color="#444" />}{" "}
+          </Link>
+          <Link to="/cart"><Button size="xs" type="outlineGray">
+            <span>
+              <ShoppingCart size={20} color="#444" />
+            </span>
+            <span className="ml-1 text-metal-600">{getTotalItems()}</span>
+          </Button></Link>
+          <Navbar.Toggle />
+        </Navbar.Container>
+      </Navbar.Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default NavBar;

@@ -21,7 +21,7 @@ const ShopCategory = (props) => {
         {allProducts.map((item, i)=>{
           console.log(props.category, item.category);
           if (props.category===item.category) {
-            return <Item key={i} id={item._id} name={item.title} image={item.images[0].downloadURL} new_price={item.price} old_price={item.old_price} />
+            return <Item key={i} product={item} />
           }
           else return null;
         })}

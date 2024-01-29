@@ -227,7 +227,7 @@ const AddProductForm = () => {
             >
               <MenuItem value="Sharee">Sharee</MenuItem>
               <MenuItem value="Panjabi">Panjabi</MenuItem>
-              <MenuItem value="Three Pcs">ThreePcs</MenuItem>
+              <MenuItem value="Threepcs">ThreePcs</MenuItem>
             </Select>
           </FormControl>
 
